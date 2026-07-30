@@ -23,7 +23,6 @@ entity Customer {
     averageRating : Decimal(3,2) default 0;
     categoryGroup : String(100);
     lastInteractionDate : Date;
-    @mandatory
     statusCode : Association to CustomerStatusCode;
     interactions : Composition of many Interaction on interactions.customerID = $self;
     preferences : Association to many Preference on preferences.customerID = $self;
