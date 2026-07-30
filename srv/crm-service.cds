@@ -8,6 +8,5 @@ service CRMService {
     entity Feedbacks as projection on crm.Feedback;
     entity Interactions as projection on crm.Interaction;
     entity CustomerNotes as projection on crm.CustomerNote;
-    entity MarketingCampaigns as projection on crm.MarketingCampaign;
     entity CustomerStatusCodes as projection on crm.CustomerStatusCode;
 }

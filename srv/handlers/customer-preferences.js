@@ -5,9 +5,6 @@ module.exports = function registerCustomerPreferenceHandlers(srv) {
         'CREATE',
         'Interactions',
         async (interaction) => {
-            console.log("==============================");
-            console.log("Preference analysis started");
-            console.log(interaction);
             const customerID =
                 interaction.customerID_customerID;
             if (!customerID) {

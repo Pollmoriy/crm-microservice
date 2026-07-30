@@ -27,7 +27,6 @@ entity Customer {
     preferences : Association to many Preference on preferences.customerID = $self;
     feedbacks : Association to many Feedback on feedbacks.customerID = $self;
     notes : Composition of many CustomerNote on notes.customerID = $self;
-    campaigns : Association to many CustomerCampaigns on campaigns.customer = $self;
 }
 
 entity Preference {
@@ -74,20 +73,4 @@ entity CustomerNote {
     date : Date;
     @mandatory
     customerID : Association to Customer;
-}
-
-entity MarketingCampaign {
-    key campaignID : UUID;
-    @mandatory
-    name : String(200);
-    @mandatory
-    startDate : Date;
-    endDate : Date;
-    description : String(1000);
-    customers : Association to many CustomerCampaigns on customers.campaign = $self;
-}
-
-entity CustomerCampaigns {
-    key customer : Association to Customer;
-    key campaign : Association to MarketingCampaign;
 }
