@@ -20,6 +20,9 @@ entity Customer {
     @mandatory
     @assert.format: '^\+?[0-9() \-]{7,20}$'
     phone : String(30);
+    averageRating : Decimal(3,2) default 0;
+    categoryGroup : String(100);
+    lastInteractionDate : Date;
     @mandatory
     statusCode : Association to CustomerStatusCode;
     interactions : Composition of many Interaction on interactions.customerID = $self;
