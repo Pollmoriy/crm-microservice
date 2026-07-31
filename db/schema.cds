@@ -1,12 +1,25 @@
+using { managed } from '@sap/cds/common';
+
 namespace crm;
 
+type InteractionMethod : String(20) enum {
+    Order;
+    Feedback;
+    Support;
+    Phone;
+    Email;
+    Visit;
+};
+
+@cds.odata.valuelist
 entity CustomerStatusCode {
     key code : String(20);
     @mandatory
     description : String(500);
+    criticality : Integer default 1;
 }
 
-entity Customer {
+entity Customer : managed {
     key customerID : UUID;
     @mandatory
     @assert.format: '^[A-Za-zÀ-ÿА-Яа-яЁё'' -]{2,100}$'
@@ -21,18 +34,18 @@ entity Customer {
     @assert.format: '^\+?[0-9() \-]{7,20}$'
     phone : String(30);
     averageRating : Decimal(3,2) default 0;
-    categoryGroup : String(100);
+    categoryGroup : Association to ProductCategoryGroup;
     statusCode : Association to CustomerStatusCode;
-    interactions : Composition of many Interaction on interactions.customerID = $self;
-    preferences : Association to many Preference on preferences.customerID = $self;
-    feedbacks : Association to many Feedback on feedbacks.customerID = $self;
-    notes : Composition of many CustomerNote on notes.customerID = $self;
+    interactions : Composition of many Interaction  on interactions.customerID = $self;
+    preferences  : Composition of many Preference   on preferences.customerID  = $self;
+    feedbacks    : Composition of many Feedback     on feedbacks.customerID    = $self;
+    notes        : Composition of many CustomerNote on notes.customerID        = $self;
 }
 
 entity Preference {
     key preferenceID : UUID;
     @mandatory
-    productCategory : String(100);
+    productCategory : Association to ProductCategory;
     notes : String(500);
     @mandatory
     customerID : Association to Customer;
@@ -56,21 +69,37 @@ entity Interaction {
     @mandatory
     date : Date;
     @mandatory
-    method : String(100);
+    method : InteractionMethod;
     @mandatory
     summary : String(1000);
     @mandatory
     customerID : Association to Customer;
+    productCategory : Association to ProductCategory;
 }
 
 entity CustomerNote {
     key noteID : UUID;
     @mandatory
     content : String(1000);
-    @mandatory
     authorID : String(100);
     @mandatory
     date : Date;
     @mandatory
     customerID : Association to Customer;
+}
+
+@cds.odata.valuelist
+entity ProductCategoryGroup {
+    key code : String(50);
+    @mandatory
+    description : String(200);
+    categories : Association to many ProductCategory on categories.group = $self;
+}
+
+@cds.odata.valuelist
+entity ProductCategory {
+    key code : String(50);
+    @mandatory
+    description : String(200);
+    group : Association to ProductCategoryGroup;
 }

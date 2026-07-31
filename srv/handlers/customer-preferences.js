@@ -1,143 +1,222 @@
 const cds = require('@sap/cds');
 
-module.exports = function registerCustomerPreferenceHandlers(srv) {
+
+module.exports = function (srv) {
+
+
     srv.after(
         'CREATE',
         'Interactions',
-        async (interaction) => {
+        async interaction => {
+
+
+            const db = await cds.connect.to('db');
+
+
             const customerID =
                 interaction.customerID_customerID;
-            if (!customerID) {
-                console.log("No customer ID");
+
+
+            if (!customerID)
                 return;
-            }
-            const db = await cds.connect.to('db');
+
+
+
+            // Get customer interactions
+
             const interactions =
                 await db.run(
                     SELECT.from('crm.Interaction')
                     .where({
                         customerID_customerID:
-                        customerID
+                            customerID
                     })
                 );
-            if (!interactions.length) {
-                return;
-            }
-            const productCounter = {};
+
+
+
+            const categoryCounter = {};
+
+
+
             interactions.forEach(item => {
-                const product =
-                    item.method;
-                if (!product) {
+
+
+                const category =
+                    item.productCategory_code;
+
+
+                if (!category)
                     return;
-                }
-                if (!productCounter[product]) {
-                    productCounter[product] = 0;
-                }
-                productCounter[product]++;
+
+
+
+                categoryCounter[category] =
+                    (categoryCounter[category] || 0) + 1;
+
+
             });
-            const preferredProduct =
-                Object.keys(productCounter)
-                .reduce((a, b) =>
-                    productCounter[a] >= productCounter[b]
+
+
+
+            if (
+                Object.keys(categoryCounter)
+                .length === 0
+            )
+                return;
+
+
+
+            // Find most popular category
+
+
+            const preferredCategory =
+                Object.keys(categoryCounter)
+                .reduce((a,b)=>
+                    categoryCounter[a] >= categoryCounter[b]
                     ? a
                     : b
                 );
+
+
+
+            // Update Preference
+
+
             const existingPreference =
                 await db.run(
                     SELECT.one
                     .from('crm.Preference')
                     .where({
                         customerID_customerID:
-                        customerID
+                            customerID
                     })
                 );
-            if (existingPreference) {
+
+
+
+            if(existingPreference){
+
+
                 await db.run(
                     UPDATE('crm.Preference')
                     .set({
-                        productCategory:
-                        preferredProduct,
+
+                        productCategory_code:
+                            preferredCategory,
+
                         notes:
-                        `Ordered ${productCounter[preferredProduct]} times`
+                            `Most requested category`
+
                     })
                     .where({
+
                         preferenceID:
-                        existingPreference.preferenceID
+                            existingPreference.preferenceID
+
                     })
                 );
-            } else {
+
+            }
+
+            else {
+
+
                 await db.run(
+
                     INSERT.into('crm.Preference')
                     .entries({
-                        productCategory:
-                        preferredProduct,
+
+                        productCategory_code:
+                            preferredCategory,
+
                         notes:
-                        `Ordered ${productCounter[preferredProduct]} times`,
+                            `Most requested category`,
+
                         customerID_customerID:
-                        customerID
+                            customerID
+
                     })
+
                 );
+
             }
-            const categoryCounter = {};
-            const categories = {
-                "Marketing Materials":
-                [
-                    "Flyers",
-                    "Posters",
-                    "Brochures"
-                ],
 
-                "Business Printing":
-                [
-                    "Business Cards"
-                ],
 
-                "Large Format Printing":
-                [
-                    "Large Format Printing"
-                ]
-            };
-            Object.entries(productCounter)
-            .forEach(([product, count]) => {
-                let category = null;
-                for (
-                    const [categoryName, products]
-                    of Object.entries(categories)
-                ) {
-                    if (
-                        products.includes(product)
-                    ) {
-                        category =
-                        categoryName;
-                        break;
-                    }
-                }
-                if (category) {
-                    if (!categoryCounter[category]) {
-                        categoryCounter[category] = 0;
 
-                    }
-                    categoryCounter[category] += count;
-                }
-            });
-            const customerCategory =
-                Object.keys(categoryCounter)
-                .reduce((a, b) =>
-                    categoryCounter[a] >= categoryCounter[b]
-                    ? a
-                    : b
+            // Get category group
+
+
+            const category =
+                await db.run(
+
+                    SELECT.one
+                    .from('crm.ProductCategory')
+                    .where({
+
+                        code:
+                            preferredCategory
+
+                    })
+
                 );
+
+
+
+            if(!category)
+                return;
+
+
+
+            const group =
+                await db.run(
+
+                    SELECT.one
+                    .from('crm.ProductCategoryGroup')
+                    .where({
+
+                        code:
+                            category.group_code
+
+                    })
+
+                );
+
+
+
+            if(!group)
+                return;
+
+
+
+            // Update customer category group
+
+
             await db.run(
+
                 UPDATE('crm.Customer')
+
                 .set({
-                    categoryGroup:
-                    customerCategory
+
+                    categoryGroup_code:
+                        group.code
+
                 })
+
                 .where({
+
                     customerID:
-                    customerID
+                        customerID
+
                 })
+
             );
+
+
+
         }
+
     );
+
+
 };

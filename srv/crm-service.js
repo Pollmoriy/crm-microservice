@@ -3,6 +3,7 @@ const registerFeedbackHandlers = require('./handlers/feedback');
 const registerCustomerStatusHandlers = require('./handlers/customer-status');
 const registerPreferenceHandlers = require('./handlers/customer-preferences');
 const registerInteractionHistoryHandlers = require('./handlers/interaction-history');
+const registerCustomerNoteHandlers = require('./handlers/customer-notes');
 
 module.exports = class CRMService extends cds.ApplicationService {
     async init() {
@@ -10,6 +11,7 @@ module.exports = class CRMService extends cds.ApplicationService {
         registerCustomerStatusHandlers(this);
         registerPreferenceHandlers(this);
         registerInteractionHistoryHandlers(this);
+        registerCustomerNoteHandlers(this);
         return super.init();
     }
 
