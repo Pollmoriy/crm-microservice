@@ -7,13 +7,20 @@
   },
   "devDependencies": {
     "@cap-js/sqlite": "^2.4",
+    "@sap/cds-dk": "^10.0.6",
     "@sap/ux-ui5-tooling": "^1.29.0",
-    "cds-plugin-ui5": "^0.17.0"
+    "cds-plugin-ui5": "^0.17.0",
+    "jest": "^29"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testTimeout": 30000
   },
   "scripts": {
     "start": "cds-serve",
     "watch": "cds watch",
-    "watch-crm-ui": "cds watch --open crm.crmui/index.html?sap-ui-xx-viewCache=false --livereload false"
+    "watch-crm-ui": "cds watch --open crm.crmui/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "test": "jest --silent --runInBand"
   },
   "workspaces": [
     "app/*"
@@ -22,15 +29,30 @@
     "app/crm-ui"
   ],
   "cds": {
-  "requires": {
-    "auth": {
-      "kind": "mocked",
-      "users": {
-        "admin":   { "password": "admin", "roles": ["CRMAdmin"] },
-        "manager": { "password": "manager", "roles": ["SalesManager"] },
-        "agent":   { "password": "agent", "roles": ["SupportAgent"] }
+    "requires": {
+      "auth": {
+        "kind": "mocked",
+        "users": {
+          "admin": {
+            "password": "admin",
+            "roles": [
+              "CRMAdmin"
+            ]
+          },
+          "manager": {
+            "password": "manager",
+            "roles": [
+              "SalesManager"
+            ]
+          },
+          "agent": {
+            "password": "agent",
+            "roles": [
+              "SupportAgent"
+            ]
+          }
+        }
       }
     }
   }
-}
 }

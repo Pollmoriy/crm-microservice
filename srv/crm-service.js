@@ -1,18 +1,11 @@
 const cds = require('@sap/cds');
-const registerFeedbackHandlers = require('./handlers/feedback');
-const registerCustomerStatusHandlers = require('./handlers/customer-status');
-const registerPreferenceHandlers = require('./handlers/customer-preferences');
-const registerInteractionHistoryHandlers = require('./handlers/interaction-history');
+const registerCustomerLifecycleHandlers = require('./handlers/customer-lifecycle');
 const registerCustomerNoteHandlers = require('./handlers/customer-notes');
 
 module.exports = class CRMService extends cds.ApplicationService {
     async init() {
-        registerFeedbackHandlers(this);
-        registerCustomerStatusHandlers(this);
-        registerPreferenceHandlers(this);
-        registerInteractionHistoryHandlers(this);
+        registerCustomerLifecycleHandlers(this);
         registerCustomerNoteHandlers(this);
         return super.init();
     }
-
-}
+};

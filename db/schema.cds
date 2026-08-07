@@ -2,21 +2,17 @@ using { managed } from '@sap/cds/common';
 
 namespace crm;
 
-type InteractionMethod : String(20) enum {
-    Order;
-    Feedback;
-    Support;
-    Phone;
-    Email;
-    Visit;
-};
-
-@cds.odata.valuelist
 entity CustomerStatusCode {
     key code : String(20);
     @mandatory
     description : String(500);
     criticality : Integer default 1;
+}
+
+entity InteractionMethod {
+    key code : String(20);
+    @mandatory
+    description : String(100);
 }
 
 entity Customer : managed {
@@ -36,7 +32,8 @@ entity Customer : managed {
     averageRating : Decimal(3,2) default 0;
     categoryGroup : Association to ProductCategoryGroup;
     statusCode : Association to CustomerStatusCode;
-    interactions : Composition of many Interaction  on interactions.customerID = $self;
+    interactions       : Composition of many Interaction on interactions.customerID = $self;
+    recentInteractions : Association to many Interaction on recentInteractions.customerID = $self;
     preferences  : Composition of many Preference   on preferences.customerID  = $self;
     feedbacks    : Composition of many Feedback     on feedbacks.customerID    = $self;
     notes        : Composition of many CustomerNote on notes.customerID        = $self;
@@ -69,12 +66,13 @@ entity Interaction {
     @mandatory
     date : Date;
     @mandatory
-    method : InteractionMethod;
+    method : Association to InteractionMethod;
     @mandatory
     summary : String(1000);
     @mandatory
     customerID : Association to Customer;
     productCategory : Association to ProductCategory;
+    sourceFeedback  : Association to Feedback; // связь для авто-лога, чтобы не дублировать
 }
 
 entity CustomerNote {
@@ -88,7 +86,6 @@ entity CustomerNote {
     customerID : Association to Customer;
 }
 
-@cds.odata.valuelist
 entity ProductCategoryGroup {
     key code : String(50);
     @mandatory
@@ -96,7 +93,6 @@ entity ProductCategoryGroup {
     categories : Association to many ProductCategory on categories.group = $self;
 }
 
-@cds.odata.valuelist
 entity ProductCategory {
     key code : String(50);
     @mandatory

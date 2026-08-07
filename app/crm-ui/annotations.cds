@@ -1,8 +1,5 @@
 using CRMService as service from '../../srv/crm-service';
 
-// ============================================================
-// CUSTOMERS
-// ============================================================
 annotate service.Customers with {
     customerID    @UI.Hidden;
     firstName     @title: 'First Name';
@@ -10,8 +7,6 @@ annotate service.Customers with {
     email         @title: 'Email';
     phone         @title: 'Phone';
     averageRating @title: 'Avg. Rating';
-    statusCode_code    @Common.Label: 'Status';
-    categoryGroup_code @Common.Label: 'Category Group';
 };
 
 annotate service.Customers with @(
@@ -22,7 +17,7 @@ annotate service.Customers with @(
         Description: { $Type: 'UI.DataField', Value: lastName }
     },
 
-    UI.SelectionFields: [ statusCode_code, categoryGroup_code ],
+    UI.SelectionFields: [ statusCode_code, categoryGroup_code, averageRating ],
 
     UI.LineItem: [
         { $Type: 'UI.DataField', Value: firstName, Label: 'First Name' },
@@ -63,8 +58,9 @@ annotate service.Customers with @(
             ID    : 'OverviewTab',
             Label : 'Overview',
             Facets: [
-                { $Type: 'UI.ReferenceFacet', ID: 'GeneralInfoFacet', Label: 'Customer Details', Target: '@UI.FieldGroup#GeneralInfo' },
-                { $Type: 'UI.ReferenceFacet', ID: 'PreferencesFacet', Label: 'Preferences (auto-detected)', Target: 'preferences/@UI.LineItem' }
+                { $Type: 'UI.ReferenceFacet', ID: 'GeneralInfoFacet',  Label: 'Customer Details', Target: '@UI.FieldGroup#GeneralInfo' },
+                { $Type: 'UI.ReferenceFacet', ID: 'PreferencesFacet',  Label: 'Preferences (auto-detected)', Target: 'preferences/@UI.LineItem' },
+                { $Type: 'UI.ReferenceFacet', ID: 'QuickInsightsFacet', Label: 'Quick Insights', Target: 'recentInteractions/@UI.PresentationVariant' }
             ]
         },
         {
@@ -72,9 +68,8 @@ annotate service.Customers with @(
             ID    : 'HistoryTab',
             Label : 'History',
             Facets: [
-                { $Type: 'UI.ReferenceFacet', ID: 'RecentActivityFacet', Label: 'Recent Activity',    Target: 'interactions/@UI.PresentationVariant#RecentActivity' },
-                { $Type: 'UI.ReferenceFacet', ID: 'InteractionFacet',    Label: 'Interaction History', Target: 'interactions/@UI.LineItem' },
-                { $Type: 'UI.ReferenceFacet', ID: 'FeedbackFacet',       Label: 'Feedback History',    Target: 'feedbacks/@UI.LineItem' }
+                { $Type: 'UI.ReferenceFacet', ID: 'InteractionFacet', Label: 'Interaction History', Target: 'interactions/@UI.LineItem' },
+                { $Type: 'UI.ReferenceFacet', ID: 'FeedbackFacet',    Label: 'Feedback History',    Target: 'feedbacks/@UI.LineItem' }
             ]
         },
         { $Type: 'UI.ReferenceFacet', ID: 'NotesFacet', Label: 'Notes', Target: 'notes/@UI.LineItem' }
@@ -89,49 +84,71 @@ annotate service.Customers with @(
         ]
     },
 
-    // Backend пересчитал -> просим UI перечитать эти поля/навигации
-    Common.SideEffects #OnFeedbackChange: {
+    Common.SideEffects #OnFeedbackSave: {
         SourceEntities  : [ feedbacks ],
         TargetProperties: [ 'averageRating', 'statusCode_code' ],
-        TargetEntities  : [ interactions ]
+        TargetEntities  : [ interactions, recentInteractions ]
     },
-    Common.SideEffects #OnInteractionChange: {
+    Common.SideEffects #OnInteractionSave: {
         SourceEntities  : [ interactions ],
         TargetProperties: [ 'categoryGroup_code', 'statusCode_code' ],
-        TargetEntities  : [ preferences ]
+        TargetEntities  : [ preferences, recentInteractions ]
     }
 );
 
-// ---------- Value Help: показывать сразу весь список ----------
 annotate service.Customers with {
-    statusCode_code @Common.ValueListWithFixedValues: true;
-    categoryGroup_code @Common.ValueListWithFixedValues: true;
+    statusCode @(
+        Common.Label: 'Status',
+        Common.Text: statusCode.description,
+        Common.Text.@UI.TextArrangement: #TextOnly,
+        Common.ValueListWithFixedValues: true,
+        Common.ValueList: {
+            CollectionPath: 'CustomerStatusCodes',
+            Parameters: [
+                { $Type: 'Common.ValueListParameterInOut', LocalDataProperty: statusCode_code, ValueListProperty: 'code' },
+                { $Type: 'Common.ValueListParameterDisplayOnly', ValueListProperty: 'description' }
+            ]
+        }
+    )
+};
+
+annotate service.Customers with {
+    categoryGroup @(
+        Common.Label: 'Category Group',
+        Common.Text: categoryGroup.description,
+        Common.Text.@UI.TextArrangement: #TextOnly,
+        Common.ValueListWithFixedValues: true,
+        Common.ValueList: {
+            CollectionPath: 'ProductCategoryGroups',
+            Parameters: [
+                { $Type: 'Common.ValueListParameterInOut', LocalDataProperty: categoryGroup_code, ValueListProperty: 'code' },
+                { $Type: 'Common.ValueListParameterDisplayOnly', ValueListProperty: 'description' }
+            ]
+        }
+    )
 };
 
 annotate service.CustomerStatusCodes with {
-    code @Common.Label: 'Status Code';
+    code        @Common.Label: 'Status Code';
     description @Common.Label: 'Description';
-    code @Common.Text: description;
-    code @Common.Text.@UI.TextArrangement: #TextOnly;
 };
 
 annotate service.ProductCategoryGroups with {
-    code @Common.Label: 'Group Code';
+    code        @Common.Label: 'Group Code';
     description @Common.Label: 'Description';
-    code @Common.Text: description;
-    code @Common.Text.@UI.TextArrangement: #TextOnly;
 };
 
 annotate service.ProductCategories with {
-    code @Common.Label: 'Category Code';
+    code        @Common.Label: 'Category Code';
     description @Common.Label: 'Description';
-    code @Common.Text: description;
-    code @Common.Text.@UI.TextArrangement: #TextOnly;
 };
 
-// ============================================================
-// PREFERENCES — только просмотр, формируется системой
-// ============================================================
+annotate service.InteractionMethods with {
+    code        @Common.Label: 'Method Code';
+    description @Common.Label: 'Description';
+};
+
+
 annotate service.Preferences with @(
     UI.LineItem: [
         { $Type: 'UI.DataField', Value: productCategory.description, Label: 'Product Category' },
@@ -142,9 +159,7 @@ annotate service.Preferences with @(
     UI.DeleteHidden: true
 );
 
-// ============================================================
-// FEEDBACKS
-// ============================================================
+
 annotate service.Feedbacks with @(
     UI.LineItem: [
         { $Type: 'UI.DataField', Value: feedbackDate, Label: 'Date' },
@@ -157,41 +172,37 @@ annotate service.Feedbacks with {
     customerID @UI.Hidden;
 };
 
-// ============================================================
-// INTERACTIONS — полная история (создаваемая) + Recent Activity (read-only)
-// ============================================================
+
 annotate service.Interactions with @(
     UI.LineItem: [
-        { $Type: 'UI.DataField', Value: method,  Label: 'Type' },
-        { $Type: 'UI.DataField', Value: date,    Label: 'Date' },
-        { $Type: 'UI.DataField', Value: summary, Label: 'Description' },
-        { $Type: 'UI.DataField', Value: productCategory.description, Label: 'Category' }
+        { $Type: 'UI.DataField', Value: method_code,          Label: 'Type' },
+        { $Type: 'UI.DataField', Value: date,                 Label: 'Date' },
+        { $Type: 'UI.DataField', Value: summary,               Label: 'Description' },
+        { $Type: 'UI.DataField', Value: productCategory_code, Label: 'Category' }
     ],
-    UI.SelectionFields: [ method ],
-
-    UI.LineItem#RecentActivity: [
-        { $Type: 'UI.DataField', Value: method,  Label: 'Type' },
-        { $Type: 'UI.DataField', Value: date,    Label: 'Date' },
-        { $Type: 'UI.DataField', Value: summary, Label: 'Description' }
-    ],
-
-    UI.PresentationVariant#RecentActivity: {
-        Text: 'Recent Activity',
-        SortOrder: [ { Property: date, Descending: true } ],
-        Visualizations: [ '@UI.LineItem#RecentActivity' ],
-        MaxItems: 5
-    },
-
-    // Recent Activity — строго только просмотр
-    UI.CreateHidden #RecentActivity: true,
-    UI.UpdateHidden #RecentActivity: true,
-    UI.DeleteHidden #RecentActivity: true
+    UI.SelectionFields: [ method_code ]
 );
 
 annotate service.Interactions with {
-    customerID @UI.Hidden;
-    productCategory_code @(
-        Common.Label: 'Product Category',
+    customerID     @UI.Hidden;
+    sourceFeedback @UI.Hidden;
+
+    method @(
+        Common.Label: 'Type',
+        Common.Text: method.description,
+        Common.Text.@UI.TextArrangement: #TextOnly,
+        Common.ValueListWithFixedValues: true,
+        Common.ValueList: {
+            CollectionPath: 'InteractionMethods',
+            Parameters: [
+                { $Type: 'Common.ValueListParameterInOut', LocalDataProperty: method_code, ValueListProperty: 'code' },
+                { $Type: 'Common.ValueListParameterDisplayOnly', ValueListProperty: 'description' }
+            ]
+        }
+    );
+
+    productCategory @(
+        Common.Label: 'Category',
         Common.Text: productCategory.description,
         Common.Text.@UI.TextArrangement: #TextOnly,
         Common.ValueListWithFixedValues: true,
@@ -205,9 +216,22 @@ annotate service.Interactions with {
     )
 };
 
-// ============================================================
-// CUSTOMER NOTES — Author проставляется автоматически
-// ============================================================
+
+annotate service.RecentInteractions with @(
+    UI.LineItem: [
+        { $Type: 'UI.DataField', Value: method.description, Label: 'Type' },
+        { $Type: 'UI.DataField', Value: date, Label: 'Date' },
+        { $Type: 'UI.DataField', Value: summary, Label: 'Description' }
+    ],
+    UI.PresentationVariant: {
+        Text: 'Quick Insights',
+        SortOrder: [ { Property: date, Descending: true } ],
+        Visualizations: [ '@UI.LineItem' ],
+        MaxItems: 10
+    }
+);
+
+
 annotate service.CustomerNotes with @(
     UI.LineItem: [
         { $Type: 'UI.DataField', Value: date, Label: 'Date' },
