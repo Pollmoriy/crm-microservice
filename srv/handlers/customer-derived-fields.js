@@ -55,7 +55,16 @@ async function recomputeCategoryPreference(db, customerID) {
     });
 
     const categoryCodes = Object.keys(counts);
-    if (!categoryCodes.length) return;
+
+    if (!categoryCodes.length) {
+        await db.run(
+            DELETE.from('crm.Preference').where({ customerID_customerID: customerID })
+        );
+        await db.run(
+            UPDATE('crm.Customer').set({ categoryGroup_code: null }).where({ customerID })
+        );
+        return;
+    }
 
     const topCategory = categoryCodes.reduce((a, b) => (counts[a] >= counts[b] ? a : b));
 
@@ -95,7 +104,6 @@ async function reconcileFeedbackInteractions(db, customerID) {
     );
     const feedbackIDs = feedbacks.map(f => f.feedbackID);
 
-    // Создаём или обновляем Interaction для каждого текущего Feedback
     for (const feedback of feedbacks) {
         const existing = await db.run(
             SELECT.one.from('crm.Interaction')

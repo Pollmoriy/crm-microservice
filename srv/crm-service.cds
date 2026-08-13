@@ -40,4 +40,13 @@ service CRMService {
     entity InteractionMethods    as projection on crm.InteractionMethod;
 
     action calculateRating();
+
+    @odata.singleton
+    @cds.persistence.skip
+    entity Configuration {
+        key ID: String;
+        isAdmin: Boolean;
+        isSalesManager: Boolean;
+        isSupportAgent: Boolean;
+    }
 }

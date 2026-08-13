@@ -19,6 +19,33 @@ annotate service.Customers with @(
 
     UI.SelectionFields: [ statusCode_code, categoryGroup_code, averageRating ],
 
+        UI.CreateHidden: {
+        $edmJson: {
+            $Not: {
+                $Path: '/Configuration/isAdmin'
+            }
+        }
+    },
+
+    UI.UpdateHidden: {
+        $edmJson: {
+            $Not: {
+                $Or: [
+                    { $Path: '/Configuration/isAdmin' },
+                    { $Path: '/Configuration/isSalesManager' }
+                ]
+            }
+        }
+    },
+
+    UI.DeleteHidden: {
+        $edmJson: {
+            $Not: {
+                $Path: '/Configuration/isAdmin'
+            }
+        }
+    },
+
     UI.LineItem: [
         { $Type: 'UI.DataField', Value: firstName, Label: 'First Name' },
         { $Type: 'UI.DataField', Value: lastName,  Label: 'Last Name' },

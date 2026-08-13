@@ -39,7 +39,7 @@ describe('CRM business logic', () => {
         await POST(`/crm/Customers(customerID='${id}',IsActiveEntity=false)/CRMService.draftActivate`, {}, admin);
 
         const { data } = await GET(`/crm/Customers(customerID='${id}',IsActiveEntity=true)`, admin);
-        expect(data.averageRating).to.equal(4);
+        expect(Number(data.averageRating)).to.equal(4);
 
         const { data: interactions } = await GET(
             `/crm/Interactions?$filter=customerID_customerID eq '${id}' and method_code eq 'FEEDBACK'`,

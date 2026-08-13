@@ -15,11 +15,6 @@ module.exports = function registerCustomerLifecycleHandlers(srv) {
     });
 
     srv.after('SAVE', 'Customers', async (customer, req) => {
-        // Временная диагностика — покажет реальную структуру payload в логах
-        console.log('[customer-lifecycle.js] RAW customer payload:', JSON.stringify(customer));
-        console.log('[customer-lifecycle.js] RAW req.data:', JSON.stringify(req?.data));
-        console.log('[customer-lifecycle.js] RAW req.params:', JSON.stringify(req?.params));
-
         const record = Array.isArray(customer) ? customer[0] : customer;
 
         const customerID =
@@ -29,13 +24,10 @@ module.exports = function registerCustomerLifecycleHandlers(srv) {
             (req?.params?.[0] && req.params[0].ID);
 
         if (!customerID) {
-            console.warn('[customer-lifecycle.js] SAVE fired without customerID — check RAW logs above');
             return;
         }
 
         const tx = cds.tx(req);
-
-        console.log(`[customer-lifecycle.js] Recalculating derived fields for ${customerID}`);
 
         await reconcileFeedbackInteractions(tx, customerID);
         await recomputeCategoryPreference(tx, customerID);
