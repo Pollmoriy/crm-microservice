@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@sap/cds": "^9"
+    "@cap-js/hana": "^3.0.2",
+    "@sap/cds": "^10.0.5",
+    "@sap/xssec": "^4"
   },
   "devDependencies": {
     "@cap-js/cds-test": "^1.0.2",
@@ -52,6 +54,16 @@
               "SupportAgent"
             ]
           }
+        }
+      }
+    },
+    "[production]": {
+      "requires": {
+        "auth": {
+          "kind": "xsuaa"
+        },
+        "db": {
+          "kind": "hana"
         }
       }
     }

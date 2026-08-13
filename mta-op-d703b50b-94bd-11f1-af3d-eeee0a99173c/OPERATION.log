@@ -1,0 +1,811 @@
+#2026 08 10 13:17:30.228#Z#INFO#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#http-nio-0.0.0.0-8080-exec-9#
+[XS2StartProcessListener] Operation ID: d703b50b-94bd-11f1-af3d-eeee0a99173c#
+#2026 08 10 13:17:30.249#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#http-nio-0.0.0.0-8080-exec-9#
+[XS2StartProcessListener] Process environment: {
+  "SKIP_SSL_VALIDATION" : "false",
+  "FLOWABLE_JOB_EXECUTOR_MAX_THREADS" : "32",
+  "VERSION" : "2.51.0",
+  "BASIC_AUTH_ENABLED" : "true",
+  "FLOWABLE_JOB_EXECUTOR_QUEUE_CAPACITY" : "16",
+  "FLOWABLE_JOB_EXECUTOR_CORE_THREADS" : "8"
+}#
+#2026 08 10 13:17:30.249#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#http-nio-0.0.0.0-8080-exec-9#
+[XS2StartProcessListener] Current user: palina.shautsova@innowise.com#
+#2026 08 10 13:17:30.249#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#http-nio-0.0.0.0-8080-exec-9#
+[XS2StartProcessListener] Client space: dev#
+#2026 08 10 13:17:30.249#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#http-nio-0.0.0.0-8080-exec-9#
+[XS2StartProcessListener] Client organization: ce46b783trial#
+#2026 08 10 13:17:30.249#Z#INFO#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#http-nio-0.0.0.0-8080-exec-9#
+[XS2StartProcessListener] Process variables: {
+  "abortOnError" : false,
+  "mtaId" : "crm-microservice",
+  "deleteServiceBrokers" : false,
+  "deleteServiceKeys" : true,
+  "noRestartSubscribedApps" : false,
+  "deleteServices" : true,
+  "noFailOnMissingPermissions" : false
+}#
+#2026 08 10 13:17:30.286#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[DetectDeployedMtaStep] Executing task "detectDeployedMtaTask" of process "d703b51d-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:30.286#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[DetectDeployedMtaStep] Detecting deployed MTA...#
+#2026 08 10 13:17:30.286#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[DetectDeployedMtaStep] Detecting MTA by id crm-microservice and namespace null#
+#2026 08 10 13:17:30.286#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[DetectDeployedMtaStep] Getting applications by metadata label selector "mta_id=6cdb3c8a78ddbfb38f008b86dc852cc1,!mta_namespace"...#
+#2026 08 10 13:17:30.320#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[DetectDeployedMtaStep] Getting service instances by metadata label selector "mta_id=6cdb3c8a78ddbfb38f008b86dc852cc1,!mta_namespace"...#
+#2026 08 10 13:17:30.467#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[DetectDeployedMtaStep] Deployed MTA: {
+  "metadata" : {
+    "id" : "crm-microservice",
+    "version" : "1.0.0"
+  },
+  "applications" : [ {
+    "name" : "crm-microservice-srv",
+    "metadata" : {
+      "guid" : "01549abd-4bf2-493a-aa7e-1893bf80d8ff",
+      "createdAt" : [ 2026, 8, 7, 19, 2, 45 ],
+      "updatedAt" : [ 2026, 8, 8, 0, 7, 17 ]
+    },
+    "v3Metadata" : {
+      "annotations" : {
+        "mta_id" : "crm-microservice",
+        "mta_version" : "1.0.0",
+        "mta_module" : "{\"name\":\"crm-microservice-srv\"}",
+        "mta_module_provided_dependencies" : "[]",
+        "mta_bound_services" : "********"
+      },
+      "labels" : {
+        "mta_id" : "6cdb3c8a78ddbfb38f008b86dc852cc1"
+      }
+    },
+    "state" : "STOPPED",
+    "lifecycle" : {
+      "type" : "BUILDPACK",
+      "data" : {
+        "stack" : "cflinuxfs4",
+        "buildpacks" : [ "nodejs_buildpack" ]
+      }
+    },
+    "space" : {
+      "name" : "dev",
+      "metadata" : {
+        "guid" : "b695c98e-a814-4280-9c89-9c44355495d6",
+        "createdAt" : [ 2026, 6, 25, 6, 46, 32 ],
+        "updatedAt" : [ 2026, 6, 25, 6, 46, 32 ]
+      },
+      "organization" : {
+        "name" : "ce46b783trial",
+        "metadata" : {
+          "guid" : "a29b150e-aac2-4cbd-baea-cfbe181b2e96",
+          "createdAt" : [ 2026, 6, 25, 6, 46, 30 ],
+          "updatedAt" : [ 2026, 6, 25, 6, 46, 31 ]
+        }
+      }
+    },
+    "moduleName" : "crm-microservice-srv",
+    "boundMtaServices" : [ "********", "crm-microservice-db" ],
+    "providedDependencyNames" : [ ],
+    "productizationState" : "LIVE"
+  }, {
+    "name" : "crm-microservice-db-deployer",
+    "metadata" : {
+      "guid" : "24559d37-b316-4675-bf28-20d9fdce958e",
+      "createdAt" : [ 2026, 8, 7, 19, 2, 49 ],
+      "updatedAt" : [ 2026, 8, 7, 19, 3, 55 ]
+    },
+    "v3Metadata" : {
+      "annotations" : {
+        "mta_id" : "crm-microservice",
+        "mta_version" : "1.0.0",
+        "mta_module" : "{\"name\":\"crm-microservice-db-deployer\"}",
+        "mta_module_provided_dependencies" : "[]",
+        "mta_bound_services" : "[\"crm-microservice-db\"]"
+      },
+      "labels" : {
+        "mta_id" : "6cdb3c8a78ddbfb38f008b86dc852cc1"
+      }
+    },
+    "state" : "STOPPED",
+    "lifecycle" : {
+      "type" : "BUILDPACK",
+      "data" : {
+        "stack" : "cflinuxfs4",
+        "buildpacks" : [ "nodejs_buildpack" ]
+      }
+    },
+    "space" : {
+      "name" : "dev",
+      "metadata" : {
+        "guid" : "b695c98e-a814-4280-9c89-9c44355495d6",
+        "createdAt" : [ 2026, 6, 25, 6, 46, 32 ],
+        "updatedAt" : [ 2026, 6, 25, 6, 46, 32 ]
+      },
+      "organization" : {
+        "name" : "ce46b783trial",
+        "metadata" : {
+          "guid" : "a29b150e-aac2-4cbd-baea-cfbe181b2e96",
+          "createdAt" : [ 2026, 6, 25, 6, 46, 30 ],
+          "updatedAt" : [ 2026, 6, 25, 6, 46, 31 ]
+        }
+      }
+    },
+    "moduleName" : "crm-microservice-db-deployer",
+    "boundMtaServices" : [ "crm-microservice-db" ],
+    "providedDependencyNames" : [ ],
+    "productizationState" : "LIVE"
+  } ],
+  "services" : [ {
+    "name" : "crm-microservice-db",
+    "metadata" : {
+      "guid" : "21c1633a-cbc0-4dba-80ec-496069ac0c2a",
+      "createdAt" : [ 2026, 8, 7, 19, 2, 28 ],
+      "updatedAt" : [ 2026, 8, 7, 19, 2, 28 ]
+    },
+    "v3Metadata" : {
+      "annotations" : {
+        "mta_id" : "crm-microservice",
+        "mta_version" : "1.0.0",
+        "mta_resource" : "{\"name\":\"crm-microservice-db\"}"
+      },
+      "labels" : {
+        "mta_id" : "6cdb3c8a78ddbfb38f008b86dc852cc1"
+      }
+    },
+    "label" : "hana",
+    "plan" : "hdi-shared",
+    "credentials" : "********",
+    "tags" : [ ],
+    "type" : "managed",
+    "lastOperation" : {
+      "type" : "CREATE",
+      "state" : "SUCCEEDED"
+    },
+    "resourceName" : "crm-microservice-db"
+  }, {
+    "name" : "crm-microservice-html5-host",
+    "metadata" : {
+      "guid" : "ff606db0-3f51-4108-acaf-054f01973cd3",
+      "createdAt" : [ 2026, 8, 7, 19, 2, 30 ],
+      "updatedAt" : [ 2026, 8, 7, 19, 2, 31 ]
+    },
+    "v3Metadata" : {
+      "annotations" : {
+        "mta_id" : "crm-microservice",
+        "mta_version" : "1.0.0",
+        "mta_resource" : "{\"name\":\"crm-microservice-html5-host\"}"
+      },
+      "labels" : {
+        "mta_id" : "6cdb3c8a78ddbfb38f008b86dc852cc1"
+      }
+    },
+    "label" : "html5-apps-repo",
+    "plan" : "app-host",
+    "credentials" : "********",
+    "tags" : [ ],
+    "type" : "managed",
+    "lastOperation" : {
+      "type" : "CREATE",
+      "description" : "",
+      "state" : "SUCCEEDED"
+    },
+    "resourceName" : "crm-microservice-html5-host"
+  }, {
+    "name" : "crm-microservice-html5-runtime",
+    "metadata" : {
+      "guid" : "c1726c5d-c515-4bde-9019-00a08491d1e7",
+      "createdAt" : [ 2026, 8, 7, 19, 2, 33 ],
+      "updatedAt" : [ 2026, 8, 7, 19, 2, 33 ]
+    },
+    "v3Metadata" : {
+      "annotations" : {
+        "mta_id" : "crm-microservice",
+        "mta_version" : "1.0.0",
+        "mta_resource" : "{\"name\":\"crm-microservice-html5-runtime\"}"
+      },
+      "labels" : {
+        "mta_id" : "6cdb3c8a78ddbfb38f008b86dc852cc1"
+      }
+    },
+    "label" : "html5-apps-repo",
+    "plan" : "app-runtime",
+    "credentials" : "********",
+    "tags" : [ ],
+    "type" : "managed",
+    "lastOperation" : {
+      "type" : "CREATE",
+      "description" : "",
+      "state" : "SUCCEEDED"
+    },
+    "resourceName" : "crm-microservice-html5-runtime"
+  }, {
+    "name" : "********",
+    "metadata" : {
+      "guid" : "50c65ffb-6ac3-402b-9f9f-39f1b02ac4a9",
+      "createdAt" : [ 2026, 8, 7, 19, 2, 30 ],
+      "updatedAt" : [ 2026, 8, 7, 19, 2, 31 ]
+    },
+    "v3Metadata" : {
+      "annotations" : {
+        "mta_id" : "crm-microservice",
+        "mta_version" : "1.0.0",
+        "mta_resource" : "********"
+      },
+      "labels" : {
+        "mta_id" : "6cdb3c8a78ddbfb38f008b86dc852cc1"
+      }
+    },
+    "label" : "xsuaa",
+    "plan" : "application",
+    "credentials" : "********",
+    "tags" : [ ],
+    "type" : "managed",
+    "lastOperation" : {
+      "type" : "CREATE",
+      "description" : "",
+      "state" : "SUCCEEDED"
+    },
+    "resourceName" : "********"
+  } ]
+}#
+#2026 08 10 13:17:30.467#Z#INFO#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[DetectDeployedMtaStep] Detected deployed MTA with ID "crm-microservice" and version "1.0.0"#
+#2026 08 10 13:17:30.474#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[DetectDeployedMtaStep] Detecting backup mta by id "crm-microservice" and namespace "null"#
+#2026 08 10 13:17:30.474#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[DetectDeployedMtaStep] Getting applications by metadata label selector "mta_id=6cdb3c8a78ddbfb38f008b86dc852cc1,mta_namespace=b698114a0995e936895b9598a6c19a2c"...#
+#2026 08 10 13:17:30.507#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[DetectDeployedMtaStep] Getting service instances by metadata label selector "mta_id=6cdb3c8a78ddbfb38f008b86dc852cc1,mta_namespace=b698114a0995e936895b9598a6c19a2c"...#
+#2026 08 10 13:17:30.577#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[DetectDeployedMtaStep] Deployed MTA service keys: [ {
+  "name" : "********",
+  "metadata" : {
+    "guid" : "3be9af3d-ab86-4d83-ab18-bbfe3314d160",
+    "createdAt" : [ 2026, 8, 7, 19, 2, 48 ],
+    "updatedAt" : [ 2026, 8, 7, 19, 2, 49 ]
+  },
+  "v3Metadata" : {
+    "annotations" : {
+      "mta_id" : "crm-microservice",
+      "mta_version" : "1.0.0"
+    },
+    "labels" : {
+      "mta_id" : "6cdb3c8a78ddbfb38f008b86dc852cc1",
+      "space_guid" : "b695c98e-a814-4280-9c89-9c44355495d6"
+    }
+  },
+  "serviceInstance" : {
+    "name" : "crm-microservice-html5-host",
+    "metadata" : {
+      "guid" : "ff606db0-3f51-4108-acaf-054f01973cd3",
+      "createdAt" : [ 2026, 8, 7, 19, 2, 30 ],
+      "updatedAt" : [ 2026, 8, 7, 19, 2, 31 ]
+    },
+    "v3Metadata" : {
+      "annotations" : {
+        "mta_id" : "crm-microservice",
+        "mta_version" : "1.0.0",
+        "mta_resource" : "{\"name\":\"crm-microservice-html5-host\"}"
+      },
+      "labels" : {
+        "mta_id" : "6cdb3c8a78ddbfb38f008b86dc852cc1"
+      }
+    },
+    "credentials" : "********",
+    "tags" : [ ],
+    "type" : "managed"
+  }
+} ]#
+#2026 08 10 13:17:30.577#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+Step "Detect Deployed MTA" finished#
+#2026 08 10 13:17:30.612#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[PrepareToUndeployStep] Executing task "prepareToUndeployTask" of process "d703b51d-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:30.613#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[PrepareToUndeployStep] Detecting components to undeploy...#
+#2026 08 10 13:17:30.623#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[PrepareToUndeployStep] Components to undeploy detected#
+#2026 08 10 13:17:30.623#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+Step "Prepare Undeploy" finished#
+#2026 08 10 13:17:30.663#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[BuildCloudUndeployModelStep] Executing task "buildUndeployModelTask" of process "d703b51d-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:30.664#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[BuildCloudUndeployModelStep] Building cloud undeployment model...#
+#2026 08 10 13:17:30.666#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[BuildCloudUndeployModelStep] Detecting service keys to delete.#
+#2026 08 10 13:17:30.667#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[BuildCloudUndeployModelStep] Detected service keys to delete "[DeployedMtaServiceKey{name=crm-microservice-ui-deployer-crm-microservice-html5-host-credentials, metadata=CloudMetadata{guid=3be9af3d-ab86-4d83-ab18-bbfe3314d160, createdAt=2026-08-07T19:02:48, updatedAt=2026-08-07T19:02:49, url=null}, v3Metadata=Metadata{annotations={mta_id=crm-microservice, mta_version=1.0.0}, labels={mta_id=6cdb3c8a78ddbfb38f008b86dc852cc1, space_guid=b695c98e-a814-4280-9c89-9c44355495d6}}, credentials=null, serviceInstance=CloudServiceInstance{name=crm-microservice-html5-host, metadata=CloudMetadata{guid=ff606db0-3f51-4108-acaf-054f01973cd3, createdAt=2026-08-07T19:02:30, updatedAt=2026-08-07T19:02:31, url=null}, v3Metadata=Metadata{annotations={mta_id=crm-microservice, mta_version=1.0.0, mta_resource={"name":"crm-microservice-html5-host"}}, labels={mta_id=6cdb3c8a78ddbfb38f008b86dc852cc1}}, label=null, plan=null, provider=null, broker=null, version=null, credentials={}, syslogDrainUrl=null, tags=[], type=managed, lastOperation=null}, serviceKeyOperation=null, resourceName=null}]"#
+#2026 08 10 13:17:30.670#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[BuildCloudUndeployModelStep] MTA modules: [crm-microservice-srv, crm-microservice-db-deployer]#
+#2026 08 10 13:17:30.670#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[BuildCloudUndeployModelStep] Modules to undeploy: [ {
+  "name" : "crm-microservice-srv",
+  "metadata" : {
+    "guid" : "01549abd-4bf2-493a-aa7e-1893bf80d8ff",
+    "createdAt" : [ 2026, 8, 7, 19, 2, 45 ],
+    "updatedAt" : [ 2026, 8, 8, 0, 7, 17 ]
+  },
+  "v3Metadata" : {
+    "annotations" : {
+      "mta_id" : "crm-microservice",
+      "mta_version" : "1.0.0",
+      "mta_module" : "{\"name\":\"crm-microservice-srv\"}",
+      "mta_module_provided_dependencies" : "[]",
+      "mta_bound_services" : "********"
+    },
+    "labels" : {
+      "mta_id" : "6cdb3c8a78ddbfb38f008b86dc852cc1"
+    }
+  },
+  "state" : "STOPPED",
+  "lifecycle" : {
+    "type" : "BUILDPACK",
+    "data" : {
+      "stack" : "cflinuxfs4",
+      "buildpacks" : [ "nodejs_buildpack" ]
+    }
+  },
+  "space" : {
+    "name" : "dev",
+    "metadata" : {
+      "guid" : "b695c98e-a814-4280-9c89-9c44355495d6",
+      "createdAt" : [ 2026, 6, 25, 6, 46, 32 ],
+      "updatedAt" : [ 2026, 6, 25, 6, 46, 32 ]
+    },
+    "organization" : {
+      "name" : "ce46b783trial",
+      "metadata" : {
+        "guid" : "a29b150e-aac2-4cbd-baea-cfbe181b2e96",
+        "createdAt" : [ 2026, 6, 25, 6, 46, 30 ],
+        "updatedAt" : [ 2026, 6, 25, 6, 46, 31 ]
+      }
+    }
+  },
+  "moduleName" : "crm-microservice-srv",
+  "boundMtaServices" : [ "********", "crm-microservice-db" ],
+  "providedDependencyNames" : [ ],
+  "productizationState" : "LIVE"
+}, {
+  "name" : "crm-microservice-db-deployer",
+  "metadata" : {
+    "guid" : "24559d37-b316-4675-bf28-20d9fdce958e",
+    "createdAt" : [ 2026, 8, 7, 19, 2, 49 ],
+    "updatedAt" : [ 2026, 8, 7, 19, 3, 55 ]
+  },
+  "v3Metadata" : {
+    "annotations" : {
+      "mta_id" : "crm-microservice",
+      "mta_version" : "1.0.0",
+      "mta_module" : "{\"name\":\"crm-microservice-db-deployer\"}",
+      "mta_module_provided_dependencies" : "[]",
+      "mta_bound_services" : "[\"crm-microservice-db\"]"
+    },
+    "labels" : {
+      "mta_id" : "6cdb3c8a78ddbfb38f008b86dc852cc1"
+    }
+  },
+  "state" : "STOPPED",
+  "lifecycle" : {
+    "type" : "BUILDPACK",
+    "data" : {
+      "stack" : "cflinuxfs4",
+      "buildpacks" : [ "nodejs_buildpack" ]
+    }
+  },
+  "space" : {
+    "name" : "dev",
+    "metadata" : {
+      "guid" : "b695c98e-a814-4280-9c89-9c44355495d6",
+      "createdAt" : [ 2026, 6, 25, 6, 46, 32 ],
+      "updatedAt" : [ 2026, 6, 25, 6, 46, 32 ]
+    },
+    "organization" : {
+      "name" : "ce46b783trial",
+      "metadata" : {
+        "guid" : "a29b150e-aac2-4cbd-baea-cfbe181b2e96",
+        "createdAt" : [ 2026, 6, 25, 6, 46, 30 ],
+        "updatedAt" : [ 2026, 6, 25, 6, 46, 31 ]
+      }
+    }
+  },
+  "moduleName" : "crm-microservice-db-deployer",
+  "boundMtaServices" : [ "crm-microservice-db" ],
+  "providedDependencyNames" : [ ],
+  "productizationState" : "LIVE"
+} ]#
+#2026 08 10 13:17:30.670#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[BuildCloudUndeployModelStep] Modules that won't be changed: [ ]#
+#2026 08 10 13:17:30.672#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[BuildCloudUndeployModelStep] Subscriptions to delete: [ ]#
+#2026 08 10 13:17:30.673#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[BuildCloudUndeployModelStep] Cloud services to delete: [crm-microservice-auth, crm-microservice-db, crm-microservice-html5-host, crm-microservice-html5-runtime]#
+#2026 08 10 13:17:30.673#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[BuildCloudUndeployModelStep] Getting application "crm-microservice-srv"...#
+#2026 08 10 13:17:30.705#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[BuildCloudUndeployModelStep] Getting application "crm-microservice-db-deployer"...#
+#2026 08 10 13:17:30.731#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[BuildCloudUndeployModelStep] Cloud applications to undeploy: [ {
+  "name" : "crm-microservice-srv",
+  "metadata" : {
+    "guid" : "01549abd-4bf2-493a-aa7e-1893bf80d8ff",
+    "createdAt" : [ 2026, 8, 7, 19, 2, 45 ],
+    "updatedAt" : [ 2026, 8, 8, 0, 7, 17 ]
+  },
+  "v3Metadata" : {
+    "annotations" : {
+      "mta_id" : "crm-microservice",
+      "mta_version" : "1.0.0",
+      "mta_module" : "{\"name\":\"crm-microservice-srv\"}",
+      "mta_module_provided_dependencies" : "[]",
+      "mta_bound_services" : "********"
+    },
+    "labels" : {
+      "mta_id" : "6cdb3c8a78ddbfb38f008b86dc852cc1"
+    }
+  },
+  "state" : "STOPPED",
+  "lifecycle" : {
+    "type" : "BUILDPACK",
+    "data" : {
+      "stack" : "cflinuxfs4",
+      "buildpacks" : [ "nodejs_buildpack" ]
+    }
+  },
+  "space" : {
+    "name" : "dev",
+    "metadata" : {
+      "guid" : "b695c98e-a814-4280-9c89-9c44355495d6",
+      "createdAt" : [ 2026, 6, 25, 6, 46, 32 ],
+      "updatedAt" : [ 2026, 6, 25, 6, 46, 32 ]
+    },
+    "organization" : {
+      "name" : "ce46b783trial",
+      "metadata" : {
+        "guid" : "a29b150e-aac2-4cbd-baea-cfbe181b2e96",
+        "createdAt" : [ 2026, 6, 25, 6, 46, 30 ],
+        "updatedAt" : [ 2026, 6, 25, 6, 46, 31 ]
+      }
+    }
+  }
+}, {
+  "name" : "crm-microservice-db-deployer",
+  "metadata" : {
+    "guid" : "24559d37-b316-4675-bf28-20d9fdce958e",
+    "createdAt" : [ 2026, 8, 7, 19, 2, 49 ],
+    "updatedAt" : [ 2026, 8, 7, 19, 3, 55 ]
+  },
+  "v3Metadata" : {
+    "annotations" : {
+      "mta_id" : "crm-microservice",
+      "mta_version" : "1.0.0",
+      "mta_module" : "{\"name\":\"crm-microservice-db-deployer\"}",
+      "mta_module_provided_dependencies" : "[]",
+      "mta_bound_services" : "[\"crm-microservice-db\"]"
+    },
+    "labels" : {
+      "mta_id" : "6cdb3c8a78ddbfb38f008b86dc852cc1"
+    }
+  },
+  "state" : "STOPPED",
+  "lifecycle" : {
+    "type" : "BUILDPACK",
+    "data" : {
+      "stack" : "cflinuxfs4",
+      "buildpacks" : [ "nodejs_buildpack" ]
+    }
+  },
+  "space" : {
+    "name" : "dev",
+    "metadata" : {
+      "guid" : "b695c98e-a814-4280-9c89-9c44355495d6",
+      "createdAt" : [ 2026, 6, 25, 6, 46, 32 ],
+      "updatedAt" : [ 2026, 6, 25, 6, 46, 32 ]
+    },
+    "organization" : {
+      "name" : "ce46b783trial",
+      "metadata" : {
+        "guid" : "a29b150e-aac2-4cbd-baea-cfbe181b2e96",
+        "createdAt" : [ 2026, 6, 25, 6, 46, 30 ],
+        "updatedAt" : [ 2026, 6, 25, 6, 46, 31 ]
+      }
+    }
+  }
+} ]#
+#2026 08 10 13:17:30.731#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[BuildCloudUndeployModelStep] Cloud undeployment model built#
+#2026 08 10 13:17:30.731#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+Step "Build Undeploy Model" finished#
+#2026 08 10 13:17:30.773#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1622#
+[DeleteSubscriptionsStep] Executing task "deleteSubscriptionsTask" of process "d703b51d-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:30.774#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1622#
+[DeleteSubscriptionsStep] Deleting discontinued subscriptions...#
+#2026 08 10 13:17:30.775#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1622#
+[DeleteSubscriptionsStep] Subscriptions to delete: [ ]#
+#2026 08 10 13:17:30.775#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1622#
+[DeleteSubscriptionsStep] Deleted discontinued subscriptions#
+#2026 08 10 13:17:30.775#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1622#
+Step "Delete Subscriptions" finished#
+#2026 08 10 13:17:30.807#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1622#
+[DeleteDiscontinuedConfigurationEntriesStep] Executing task "deleteDiscontinuedConfigurationEntriesTask" of process "d703b51d-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:30.808#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1622#
+[DeleteDiscontinuedConfigurationEntriesStep] Deleting discontinued published dependencies...#
+#2026 08 10 13:17:30.841#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1622#
+[DeleteDiscontinuedConfigurationEntriesStep] Deleted entries: [ ]#
+#2026 08 10 13:17:30.841#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1622#
+[DeleteDiscontinuedConfigurationEntriesStep] Discontinued published dependencies deleted#
+#2026 08 10 13:17:30.841#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1622#
+Step "Delete Discontinued Configuration Entries" finished#
+#2026 08 10 13:17:30.877#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1628#
+[DeleteServiceBrokersStep] Executing task "deleteServiceBrokersTask" of process "d703b51d-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:30.878#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1628#
+[DeleteServiceBrokersStep] Deleting discontinued service brokers...#
+#2026 08 10 13:17:30.880#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1628#
+[DeleteServiceBrokersStep] Getting environment of application "01549abd-4bf2-493a-aa7e-1893bf80d8ff"...#
+#2026 08 10 13:17:30.922#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1628#
+[DeleteServiceBrokersStep] Getting environment of application "24559d37-b316-4675-bf28-20d9fdce958e"...#
+#2026 08 10 13:17:30.961#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1628#
+[DeleteServiceBrokersStep] Discontinued service brokers deleted#
+#2026 08 10 13:17:30.961#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1628#
+Step "Delete Service Brokers" finished#
+#2026 08 10 13:17:31.080#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1621#
+[DeleteApplicationRoutesStep] Executing task "deleteApplicationRoutesTask" of process "d77dedfb-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:31.081#Z#INFO#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1621#
+[DeleteApplicationRoutesStep] Deleting routes for application "crm-microservice-srv"...#
+#2026 08 10 13:17:31.088#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1621#
+[DeleteApplicationRoutesStep] Getting routes for application "01549abd-4bf2-493a-aa7e-1893bf80d8ff"...#
+#2026 08 10 13:17:31.114#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1621#
+[DeleteApplicationRoutesStep] Routes for application crm-microservice-srv: [ ]#
+#2026 08 10 13:17:31.114#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1621#
+[DeleteApplicationRoutesStep] Updating URIs of application "crm-microservice-srv" to: #
+#2026 08 10 13:17:31.174#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1621#
+[DeleteApplicationRoutesStep] App routes for applications "crm-microservice-srv" deleted#
+#2026 08 10 13:17:31.174#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1621#
+Step "Delete Application Routes Step" finished#
+#2026 08 10 13:17:31.208#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[StopApplicationUndeploymentStep] Executing task "stopApplicationUndeploymentTask" of process "d77dedfb-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:31.209#Z#INFO#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[StopApplicationUndeploymentStep] Stopping application "crm-microservice-srv"...#
+#2026 08 10 13:17:31.214#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[StopApplicationUndeploymentStep] Stopping application "crm-microservice-srv"...#
+#2026 08 10 13:17:31.244#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[StopApplicationUndeploymentStep] Application "crm-microservice-srv" stopped#
+#2026 08 10 13:17:31.244#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+[StopApplicationUndeploymentStep] Getting environment of application "crm-microservice-srv"...#
+#2026 08 10 13:17:31.308#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1625#
+Step "Stop Application Undeployment Step" finished#
+#2026 08 10 13:17:31.343#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1627#
+[DetermineServiceBindingsToDeleteStep] Executing task "sid-DFD29F59-3CDA-4F18-876E-E675418FFF0E" of process "d77dedfb-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:31.344#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1627#
+[DetermineServiceBindingsToDeleteStep] Getting application guid "crm-microservice-srv"...#
+#2026 08 10 13:17:31.377#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1627#
+[DetermineServiceBindingsToDeleteStep] Getting bindings of application "01549abd-4bf2-493a-aa7e-1893bf80d8ff"...#
+#2026 08 10 13:17:31.412#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1627#
+[DetermineServiceBindingsToDeleteStep] Existing service bindings "[ {
+  "metadata" : {
+    "guid" : "57c59622-f04e-4a71-b2c2-d7c5eaaac70c",
+    "createdAt" : [ 2026, 8, 7, 19, 2, 48 ],
+    "updatedAt" : [ 2026, 8, 7, 19, 2, 54 ]
+  },
+  "applicationGuid" : "01549abd-4bf2-493a-aa7e-1893bf80d8ff",
+  "serviceInstanceGuid" : "21c1633a-cbc0-4dba-80ec-496069ac0c2a",
+  "serviceBindingOperation" : {
+    "type" : "DELETE",
+    "state" : "FAILED",
+    "description" : "Failed to drop service binding '57c59622-f04e-4a71-b2c2-d7c5eaaac70c' for instance '21c1633a-cbc0-4dba-80ec-496069ac0c2a' on database '02e324cf-5f59-46a9-b83e-98dae5e413d4' (02e324cf-5f59-46a9-b83e-98dae5e413d4.hna0.prod-us10.hanacloud.ondemand.com:443), because of: Failed to open connection to the database, because of: failed to get connection to database '02e324cf-5f59-46a9-b83e-98dae5e413d4' (02e324cf-5f59-46a9-b83e-98dae5e413d4.hna0.prod-us10.hanacloud.ondemand.com:443), because of: SAP DBTech JDBC: [1890]: HANA Database instance is stopped",
+    "createdAt" : [ 2026, 8, 10, 13, 16, 56 ],
+    "updatedAt" : [ 2026, 8, 10, 13, 16, 56 ]
+  }
+} ]"#
+#2026 08 10 13:17:31.412#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1627#
+Step "Determine Service Bindings to Delete" finished#
+#2026 08 10 13:17:31.494#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1622#
+[CheckServiceBindingOperationStep] Executing task "checkForServiceBindingOperationInProgress" of process "d7bf8b15-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:31.495#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1622#
+[CheckServiceBindingOperationStep] Service binding "57c59622-f04e-4a71-b2c2-d7c5eaaac70c" scheduled for deletion#
+#2026 08 10 13:17:31.495#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1622#
+[CheckServiceBindingOperationStep] Service binding operation "57c59622-f04e-4a71-b2c2-d7c5eaaac70c" with type "delete" is in state "failed"#
+#2026 08 10 13:17:31.495#Z#WARN#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1622#
+[CheckServiceBindingOperationStep] Service binding "57c59622-f04e-4a71-b2c2-d7c5eaaac70c" exists in broken state, will be recreated#
+#2026 08 10 13:17:31.496#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1622#
+Step "Check For Service Binding Operation In Progress" finished#
+#2026 08 10 13:17:31.529#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1626#
+[DetermineApplicationServiceBindingActionsStep] Executing task "determineApplicationServiceBindingActionsTask" of process "d7bf8b15-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:31.530#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1626#
+[DetermineApplicationServiceBindingActionsStep] Getting service instance name "21c1633a-cbc0-4dba-80ec-496069ac0c2a"...#
+#2026 08 10 13:17:31.560#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1626#
+[DetermineApplicationServiceBindingActionsStep] Will unbind service instance "crm-microservice-db" from app "crm-microservice-srv"#
+#2026 08 10 13:17:31.560#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1626#
+[DetermineApplicationServiceBindingActionsStep] Calculated binding operations between application "crm-microservice-srv" and service instance "crm-microservice-db": unbind - true bind - false#
+#2026 08 10 13:17:31.560#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1626#
+Step "Determine Application Service Binding Actions" finished#
+#2026 08 10 13:17:31.594#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1628#
+[UnbindServiceFromApplicationStep] Executing task "unbindServiceFromApplicationTask" of process "d7bf8b15-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:31.596#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1628#
+[UnbindServiceFromApplicationStep] Deleting service binding "57c59622-f04e-4a71-b2c2-d7c5eaaac70c"...#
+#2026 08 10 13:17:31.651#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1628#
+Step "Unbind Service from Application" finished#
+#2026 08 10 13:17:33.276#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+[DeleteApplicationRoutesStep] Executing task "deleteApplicationRoutesTask" of process "d8cd5100-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:33.277#Z#INFO#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+[DeleteApplicationRoutesStep] Deleting routes for application "crm-microservice-db-deployer"...#
+#2026 08 10 13:17:33.284#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+[DeleteApplicationRoutesStep] Getting routes for application "24559d37-b316-4675-bf28-20d9fdce958e"...#
+#2026 08 10 13:17:33.312#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+[DeleteApplicationRoutesStep] Routes for application crm-microservice-db-deployer: [ ]#
+#2026 08 10 13:17:33.312#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+[DeleteApplicationRoutesStep] Updating URIs of application "crm-microservice-db-deployer" to: #
+#2026 08 10 13:17:33.374#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+[DeleteApplicationRoutesStep] App routes for applications "crm-microservice-db-deployer" deleted#
+#2026 08 10 13:17:33.374#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+Step "Delete Application Routes Step" finished#
+#2026 08 10 13:17:33.408#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+[StopApplicationUndeploymentStep] Executing task "stopApplicationUndeploymentTask" of process "d8cd5100-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:33.410#Z#INFO#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+[StopApplicationUndeploymentStep] Stopping application "crm-microservice-db-deployer"...#
+#2026 08 10 13:17:33.414#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+[StopApplicationUndeploymentStep] Stopping application "crm-microservice-db-deployer"...#
+#2026 08 10 13:17:33.444#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+[StopApplicationUndeploymentStep] Application "crm-microservice-db-deployer" stopped#
+#2026 08 10 13:17:33.444#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+[StopApplicationUndeploymentStep] Getting environment of application "crm-microservice-db-deployer"...#
+#2026 08 10 13:17:33.512#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+Step "Stop Application Undeployment Step" finished#
+#2026 08 10 13:17:33.545#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+[DetermineServiceBindingsToDeleteStep] Executing task "sid-DFD29F59-3CDA-4F18-876E-E675418FFF0E" of process "d8cd5100-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:33.546#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+[DetermineServiceBindingsToDeleteStep] Getting application guid "crm-microservice-db-deployer"...#
+#2026 08 10 13:17:33.576#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+[DetermineServiceBindingsToDeleteStep] Getting bindings of application "24559d37-b316-4675-bf28-20d9fdce958e"...#
+#2026 08 10 13:17:33.610#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+[DetermineServiceBindingsToDeleteStep] Existing service bindings "[ {
+  "metadata" : {
+    "guid" : "a86dbd71-4b01-4c36-8efb-2780f859f5a0",
+    "createdAt" : [ 2026, 8, 7, 19, 2, 49 ],
+    "updatedAt" : [ 2026, 8, 7, 19, 2, 55 ]
+  },
+  "applicationGuid" : "24559d37-b316-4675-bf28-20d9fdce958e",
+  "serviceInstanceGuid" : "21c1633a-cbc0-4dba-80ec-496069ac0c2a",
+  "serviceBindingOperation" : {
+    "type" : "DELETE",
+    "state" : "FAILED",
+    "description" : "Failed to drop service binding 'a86dbd71-4b01-4c36-8efb-2780f859f5a0' for instance '21c1633a-cbc0-4dba-80ec-496069ac0c2a' on database '02e324cf-5f59-46a9-b83e-98dae5e413d4' (02e324cf-5f59-46a9-b83e-98dae5e413d4.hna0.prod-us10.hanacloud.ondemand.com:443), because of: Failed to open connection to the database, because of: failed to get connection to database '02e324cf-5f59-46a9-b83e-98dae5e413d4' (02e324cf-5f59-46a9-b83e-98dae5e413d4.hna0.prod-us10.hanacloud.ondemand.com:443), because of: SAP DBTech JDBC: [1890]: HANA Database instance is stopped",
+    "createdAt" : [ 2026, 8, 10, 13, 16, 56 ],
+    "updatedAt" : [ 2026, 8, 10, 13, 16, 56 ]
+  }
+} ]"#
+#2026 08 10 13:17:33.610#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+Step "Determine Service Bindings to Delete" finished#
+#2026 08 10 13:17:33.690#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+[CheckServiceBindingOperationStep] Executing task "checkForServiceBindingOperationInProgress" of process "d90e51da-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:33.691#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+[CheckServiceBindingOperationStep] Service binding "a86dbd71-4b01-4c36-8efb-2780f859f5a0" scheduled for deletion#
+#2026 08 10 13:17:33.691#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+[CheckServiceBindingOperationStep] Service binding operation "a86dbd71-4b01-4c36-8efb-2780f859f5a0" with type "delete" is in state "failed"#
+#2026 08 10 13:17:33.691#Z#WARN#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+[CheckServiceBindingOperationStep] Service binding "a86dbd71-4b01-4c36-8efb-2780f859f5a0" exists in broken state, will be recreated#
+#2026 08 10 13:17:33.692#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+Step "Check For Service Binding Operation In Progress" finished#
+#2026 08 10 13:17:33.726#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+[DetermineApplicationServiceBindingActionsStep] Executing task "determineApplicationServiceBindingActionsTask" of process "d90e51da-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:33.727#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+[DetermineApplicationServiceBindingActionsStep] Getting service instance name "21c1633a-cbc0-4dba-80ec-496069ac0c2a"...#
+#2026 08 10 13:17:33.766#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+[DetermineApplicationServiceBindingActionsStep] Will unbind service instance "crm-microservice-db" from app "crm-microservice-db-deployer"#
+#2026 08 10 13:17:33.766#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+[DetermineApplicationServiceBindingActionsStep] Calculated binding operations between application "crm-microservice-db-deployer" and service instance "crm-microservice-db": unbind - true bind - false#
+#2026 08 10 13:17:33.766#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+Step "Determine Application Service Binding Actions" finished#
+#2026 08 10 13:17:33.800#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+[UnbindServiceFromApplicationStep] Executing task "unbindServiceFromApplicationTask" of process "d90e51da-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:33.803#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+[UnbindServiceFromApplicationStep] Deleting service binding "a86dbd71-4b01-4c36-8efb-2780f859f5a0"...#
+#2026 08 10 13:17:33.848#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1629#
+Step "Unbind Service from Application" finished#
+#2026 08 10 13:17:39.341#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1871#
+[UnbindServiceFromApplicationStep] Executing task "unbindServiceFromApplicationTask" of process "d90e51da-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:39.342#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1871#
+[UnbindServiceFromApplicationStep] Getting async job "bfebddfb-49fc-4e7f-a3dd-d96397489cfe"#
+#2026 08 10 13:17:39.372#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1871#
+[UnbindServiceFromApplicationStep] Async operation of service binding "bfebddfb-49fc-4e7f-a3dd-d96397489cfe" is in state "POLLING" warnings ""#
+#2026 08 10 13:17:39.372#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1871#
+Step "Unbind Service from Application" finished#
+#2026 08 10 13:17:39.465#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1869#
+[UnbindServiceFromApplicationStep] Executing task "unbindServiceFromApplicationTask" of process "d7bf8b15-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:39.466#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1869#
+[UnbindServiceFromApplicationStep] Getting async job "5346d83f-59c1-43ab-b6b5-0bcd1878da2a"#
+#2026 08 10 13:17:39.496#Z#ERROR#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1869#
+[UnbindServiceFromApplicationStep] Async operation for service binding "5346d83f-59c1-43ab-b6b5-0bcd1878da2a" between app "crm-microservice-srv" and service instance "null" failed: Instance not found. Cause: 10009 CF-UnableToPerform delete could not be completed: VCAP::CloudController::V3::LastOperationFailedState#
+#2026 08 10 13:17:39.501#Z#INFO#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1869#
+[UnbindServiceFromApplicationStep] Download the MTA operation logs for more details.#
+#2026 08 10 13:17:39.505#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1869#
+Step "Unbind Service from Application" finished#
+#2026 08 10 13:17:42.677#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1637#
+[UnbindServiceFromApplicationStep] Executing task "unbindServiceFromApplicationTask" of process "d7bf8b15-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:42.679#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1637#
+[UnbindServiceFromApplicationStep] Deleting service binding "57c59622-f04e-4a71-b2c2-d7c5eaaac70c"...#
+#2026 08 10 13:17:42.729#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1637#
+Step "Unbind Service from Application" finished#
+#2026 08 10 13:17:49.038#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1877#
+[UnbindServiceFromApplicationStep] Executing task "unbindServiceFromApplicationTask" of process "d90e51da-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:49.133#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1877#
+[UnbindServiceFromApplicationStep] Getting async job "bfebddfb-49fc-4e7f-a3dd-d96397489cfe"#
+#2026 08 10 13:17:49.172#Z#ERROR#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1877#
+[UnbindServiceFromApplicationStep] Async operation for service binding "bfebddfb-49fc-4e7f-a3dd-d96397489cfe" between app "crm-microservice-db-deployer" and service instance "null" failed: Instance not found. Cause: 10009 CF-UnableToPerform delete could not be completed: VCAP::CloudController::V3::LastOperationFailedState#
+#2026 08 10 13:17:49.185#Z#INFO#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1877#
+[UnbindServiceFromApplicationStep] Download the MTA operation logs for more details.#
+#2026 08 10 13:17:49.190#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1877#
+Step "Unbind Service from Application" finished#
+#2026 08 10 13:17:49.487#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1882#
+[UnbindServiceFromApplicationStep] Executing task "unbindServiceFromApplicationTask" of process "d7bf8b15-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:49.559#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1882#
+[UnbindServiceFromApplicationStep] Getting async job "f5c0d627-8282-4fcc-97ae-6d00b8e0bed2"#
+#2026 08 10 13:17:49.605#Z#ERROR#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1882#
+[UnbindServiceFromApplicationStep] Async operation for service binding "f5c0d627-8282-4fcc-97ae-6d00b8e0bed2" between app "crm-microservice-srv" and service instance "null" failed: Instance not found. Cause: 10009 CF-UnableToPerform delete could not be completed: VCAP::CloudController::V3::LastOperationFailedState#
+#2026 08 10 13:17:49.611#Z#INFO#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1882#
+[UnbindServiceFromApplicationStep] Download the MTA operation logs for more details.#
+#2026 08 10 13:17:49.620#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1882#
+Step "Unbind Service from Application" finished#
+#2026 08 10 13:17:52.069#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1648#
+[UnbindServiceFromApplicationStep] Executing task "unbindServiceFromApplicationTask" of process "d7bf8b15-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:52.075#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1648#
+[UnbindServiceFromApplicationStep] Deleting service binding "57c59622-f04e-4a71-b2c2-d7c5eaaac70c"...#
+#2026 08 10 13:17:52.111#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1651#
+[UnbindServiceFromApplicationStep] Executing task "unbindServiceFromApplicationTask" of process "d90e51da-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:52.114#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1651#
+[UnbindServiceFromApplicationStep] Deleting service binding "a86dbd71-4b01-4c36-8efb-2780f859f5a0"...#
+#2026 08 10 13:17:52.136#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1648#
+Step "Unbind Service from Application" finished#
+#2026 08 10 13:17:52.170#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1651#
+Step "Unbind Service from Application" finished#
+#2026 08 10 13:17:59.211#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1667#
+[UnbindServiceFromApplicationStep] Executing task "unbindServiceFromApplicationTask" of process "d7bf8b15-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:59.212#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1667#
+[UnbindServiceFromApplicationStep] Getting async job "86889428-2e64-407e-b2cf-9209f1948c8a"#
+#2026 08 10 13:17:59.240#Z#ERROR#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1667#
+[UnbindServiceFromApplicationStep] Async operation for service binding "86889428-2e64-407e-b2cf-9209f1948c8a" between app "crm-microservice-srv" and service instance "null" failed: Instance not found. Cause: 10009 CF-UnableToPerform delete could not be completed: VCAP::CloudController::V3::LastOperationFailedState#
+#2026 08 10 13:17:59.247#Z#INFO#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1667#
+[UnbindServiceFromApplicationStep] Download the MTA operation logs for more details.#
+#2026 08 10 13:17:59.252#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1667#
+Step "Unbind Service from Application" finished#
+#2026 08 10 13:17:59.424#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1889#
+[UnbindServiceFromApplicationStep] Executing task "unbindServiceFromApplicationTask" of process "d90e51da-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:17:59.501#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1889#
+[UnbindServiceFromApplicationStep] Getting async job "b841475d-f92a-4ae2-84a4-cfd2c7683b5c"#
+#2026 08 10 13:17:59.553#Z#ERROR#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1889#
+[UnbindServiceFromApplicationStep] Async operation for service binding "b841475d-f92a-4ae2-84a4-cfd2c7683b5c" between app "crm-microservice-db-deployer" and service instance "null" failed: Instance not found. Cause: 10009 CF-UnableToPerform delete could not be completed: VCAP::CloudController::V3::LastOperationFailedState#
+#2026 08 10 13:17:59.562#Z#INFO#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1889#
+[UnbindServiceFromApplicationStep] Download the MTA operation logs for more details.#
+#2026 08 10 13:17:59.567#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1889#
+Step "Unbind Service from Application" finished#
+#2026 08 10 13:18:01.440#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1655#
+[UnbindServiceFromApplicationStep] Executing task "unbindServiceFromApplicationTask" of process "d7bf8b15-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:18:01.442#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1655#
+[UnbindServiceFromApplicationStep] Deleting service binding "57c59622-f04e-4a71-b2c2-d7c5eaaac70c"...#
+#2026 08 10 13:18:01.455#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1656#
+[UnbindServiceFromApplicationStep] Executing task "unbindServiceFromApplicationTask" of process "d90e51da-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:18:01.457#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1656#
+[UnbindServiceFromApplicationStep] Deleting service binding "a86dbd71-4b01-4c36-8efb-2780f859f5a0"...#
+#2026 08 10 13:18:01.505#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1655#
+Step "Unbind Service from Application" finished#
+#2026 08 10 13:18:01.505#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1656#
+Step "Unbind Service from Application" finished#
+#2026 08 10 13:18:09.376#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1895#
+[UnbindServiceFromApplicationStep] Executing task "unbindServiceFromApplicationTask" of process "d7bf8b15-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:18:09.442#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1895#
+[UnbindServiceFromApplicationStep] Getting async job "a6f6e0f6-1601-4a26-926d-10f7d8a613cc"#
+#2026 08 10 13:18:09.449#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1896#
+[UnbindServiceFromApplicationStep] Executing task "unbindServiceFromApplicationTask" of process "d90e51da-94bd-11f1-af3d-eeee0a99173c"...#
+#2026 08 10 13:18:09.450#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1896#
+[UnbindServiceFromApplicationStep] Getting async job "77c23d1a-11ad-4a8b-8952-a59581334dbf"#
+#2026 08 10 13:18:09.495#Z#ERROR#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1896#
+[UnbindServiceFromApplicationStep] Async operation for service binding "77c23d1a-11ad-4a8b-8952-a59581334dbf" between app "crm-microservice-db-deployer" and service instance "null" failed: Instance not found. Cause: 10009 CF-UnableToPerform delete could not be completed: VCAP::CloudController::V3::LastOperationFailedState#
+#2026 08 10 13:18:09.500#Z#INFO#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1896#
+[UnbindServiceFromApplicationStep] Download the MTA operation logs for more details.#
+#2026 08 10 13:18:09.505#Z#ERROR#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1895#
+[UnbindServiceFromApplicationStep] Async operation for service binding "a6f6e0f6-1601-4a26-926d-10f7d8a613cc" between app "crm-microservice-srv" and service instance "null" failed: Instance not found. Cause: 10009 CF-UnableToPerform delete could not be completed: VCAP::CloudController::V3::LastOperationFailedState#
+#2026 08 10 13:18:09.506#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1896#
+Step "Unbind Service from Application" finished#
+#2026 08 10 13:18:09.517#Z#INFO#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1895#
+[UnbindServiceFromApplicationStep] Download the MTA operation logs for more details.#
+#2026 08 10 13:18:09.528#Z#DEBUG#d703b50b-94bd-11f1-af3d-eeee0a99173c.OPERATION#flowable-async-job-executor-thread-1895#
+Step "Unbind Service from Application" finished#

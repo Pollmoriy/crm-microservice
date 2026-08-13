@@ -14,20 +14,32 @@ module.exports = function registerCustomerLifecycleHandlers(srv) {
         }
     });
 
-    srv.after('SAVE', 'Customers', async (customer) => {
-        const customerID = customer.customerID;
+    srv.after('SAVE', 'Customers', async (customer, req) => {
+        // Временная диагностика — покажет реальную структуру payload в логах
+        console.log('[customer-lifecycle.js] RAW customer payload:', JSON.stringify(customer));
+        console.log('[customer-lifecycle.js] RAW req.data:', JSON.stringify(req?.data));
+        console.log('[customer-lifecycle.js] RAW req.params:', JSON.stringify(req?.params));
+
+        const record = Array.isArray(customer) ? customer[0] : customer;
+
+        const customerID =
+            record?.customerID ||
+            req?.data?.customerID ||
+            (req?.params?.[0] && req.params[0].customerID) ||
+            (req?.params?.[0] && req.params[0].ID);
+
         if (!customerID) {
-            console.warn('[customer-lifecycle.js] SAVE fired without customerID');
+            console.warn('[customer-lifecycle.js] SAVE fired without customerID — check RAW logs above');
             return;
         }
 
-        const db = await cds.connect.to('db');
+        const tx = cds.tx(req);
 
         console.log(`[customer-lifecycle.js] Recalculating derived fields for ${customerID}`);
 
-        await reconcileFeedbackInteractions(db, customerID);
-        await recomputeCategoryPreference(db, customerID);
-        await recomputeAverageRating(db, customerID);
-        await recomputeStatus(db, customerID);
+        await reconcileFeedbackInteractions(tx, customerID);
+        await recomputeCategoryPreference(tx, customerID);
+        await recomputeAverageRating(tx, customerID);
+        await recomputeStatus(tx, customerID);
     });
 };

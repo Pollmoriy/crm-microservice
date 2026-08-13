@@ -1,0 +1,87 @@
+{
+    "xsuaa": [
+        {
+            "label": "xsuaa",
+            "provider": null,
+            "plan": "application",
+            "name": "crm-microservice-auth",
+            "tags": [
+                "xsuaa"
+            ],
+            "instance_guid": "bc22e2f8-a207-4703-b059-e8d2c33cc285",
+            "instance_name": "crm-microservice-auth",
+            "binding_guid": "d54fe0bb-2a0b-4258-a655-b5f489d19a83",
+            "binding_name": null,
+            "credentials": {
+                "tenantmode": "dedicated",
+                "sburl": "https://internal-xsuaa.authentication.us10.hana.ondemand.com",
+                "subaccountid": "0099329f-3ce9-4020-9179-3d772dfacd5e",
+                "credential-type": "binding-secret",
+                "clientid": "sb-crm-microservice-ce46b783trial-dev!t691860",
+                "xsappname": "crm-microservice-ce46b783trial-dev!t691860",
+                "clientsecret": "d54fe0bb-2a0b-4258-a655-b5f489d19a83$C4QODkO_2ECTvpX_HUH9p56Ph3JPt6dfkHeI4AE0gUM=",
+                "serviceInstanceId": "bc22e2f8-a207-4703-b059-e8d2c33cc285",
+                "url": "https://ce46b783trial.authentication.us10.hana.ondemand.com",
+                "uaadomain": "authentication.us10.hana.ondemand.com",
+                "verificationkey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0IarFYgZXci0oe2Y/cJA\nkGSvNlsdbpahupzDOIpKBBVREO9Eqxv4Jp9/bLm34KO5ItZXidrHA6xoYro3+t5R\n/4B8oTPDnPsIP8eTe6AmktS0TqQOlSB8ZtzUcIEs6u0EC4HOBr8nOFjiWO1cLAlb\n3AZ7UYIJqvBC1hCAJH3WEEkKtL6FpaLqIzgNuhYrdT+Cjy/RIfjneQ4w4MUudU+G\ne9sWI/m0q0WOVNrT+U7CP4Vn8vJEuD7oKJWLwQPOOeu/NoCnn+pdp4jQ4DyRafBU\nrys4l4R67zWUOA2WYZM+ObyOK4MVpjaErdWwAaftkQnYt0EEsft9hpL9hvQQQJ8h\n0wIDAQAB\n-----END PUBLIC KEY-----",
+                "apiurl": "https://api.authentication.us10.hana.ondemand.com",
+                "identityzone": "ce46b783trial",
+                "identityzoneid": "0099329f-3ce9-4020-9179-3d772dfacd5e",
+                "tenantid": "0099329f-3ce9-4020-9179-3d772dfacd5e",
+                "zoneid": "0099329f-3ce9-4020-9179-3d772dfacd5e"
+            },
+            "syslog_drain_url": null,
+            "volume_mounts": []
+        }
+    ],
+    "html5-apps-repo": [
+        {
+            "label": "html5-apps-repo",
+            "provider": null,
+            "plan": "app-runtime",
+            "name": "crm-microservice-html5-runtime",
+            "tags": [
+                "html5appsrepo",
+                "html5-apps-repo-rt",
+                "html5-apps-rt",
+                "html5-apps-repo-dt",
+                "html5-apps-dt"
+            ],
+            "instance_guid": "184dbd71-55aa-47d9-bf5b-8192c6e8ccaf",
+            "instance_name": "crm-microservice-html5-runtime",
+            "binding_guid": "a4fdf9f5-0664-4579-9378-5b785176218d",
+            "binding_name": null,
+            "credentials": {
+                "vendor": "SAP",
+                "uri": "https://html5-apps-repo-rt.cfapps.us10.hana.ondemand.com",
+                "bindable": true,
+                "metadata": {
+                    "supportsInstanceSharing": true
+                },
+                "uaa": {
+                    "tenantmode": "dedicated",
+                    "sburl": "https://internal-xsuaa.authentication.us10.hana.ondemand.com",
+                    "subaccountid": "0099329f-3ce9-4020-9179-3d772dfacd5e",
+                    "credential-type": "binding-secret",
+                    "clientid": "sb-184dbd71-55aa-47d9-bf5b-8192c6e8ccaf!b691860|html5-apps-repo-uaa!b424",
+                    "xsappname": "184dbd71-55aa-47d9-bf5b-8192c6e8ccaf!b691860|html5-apps-repo-uaa!b424",
+                    "clientsecret": "a4fdf9f5-0664-4579-9378-5b785176218d$eeWsQT4mR-ephN8JbSmohZICYRFBYxwNbgnyYegFXHo=",
+                    "serviceInstanceId": "184dbd71-55aa-47d9-bf5b-8192c6e8ccaf",
+                    "url": "https://ce46b783trial.authentication.us10.hana.ondemand.com",
+                    "uaadomain": "authentication.us10.hana.ondemand.com",
+                    "verificationkey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0IarFYgZXci0oe2Y/cJA\nkGSvNlsdbpahupzDOIpKBBVREO9Eqxv4Jp9/bLm34KO5ItZXidrHA6xoYro3+t5R\n/4B8oTPDnPsIP8eTe6AmktS0TqQOlSB8ZtzUcIEs6u0EC4HOBr8nOFjiWO1cLAlb\n3AZ7UYIJqvBC1hCAJH3WEEkKtL6FpaLqIzgNuhYrdT+Cjy/RIfjneQ4w4MUudU+G\ne9sWI/m0q0WOVNrT+U7CP4Vn8vJEuD7oKJWLwQPOOeu/NoCnn+pdp4jQ4DyRafBU\nrys4l4R67zWUOA2WYZM+ObyOK4MVpjaErdWwAaftkQnYt0EEsft9hpL9hvQQQJ8h\n0wIDAQAB\n-----END PUBLIC KEY-----",
+                    "apiurl": "https://api.authentication.us10.hana.ondemand.com",
+                    "identityzone": "ce46b783trial",
+                    "identityzoneid": "0099329f-3ce9-4020-9179-3d772dfacd5e",
+                    "tenantid": "0099329f-3ce9-4020-9179-3d772dfacd5e",
+                    "zoneid": "0099329f-3ce9-4020-9179-3d772dfacd5e"
+                },
+                "grant_type": "client_credentials",
+                "sap.cloud.service": "html5-apps-repo-rt",
+                "saasregistryenabled": true
+            },
+            "syslog_drain_url": null,
+            "volume_mounts": []
+        }
+    ]
+}
