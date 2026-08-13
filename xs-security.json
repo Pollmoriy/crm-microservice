@@ -1,0 +1,66 @@
+{
+  "xsappname": "crm-microservice-ce46b783trial-dev",
+  "tenant-mode": "dedicated",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.CRMAdmin",
+      "description": "Full access to CRM"
+    },
+    {
+      "name": "$XSAPPNAME.SalesManager",
+      "description": "View/update customers, log interactions"
+    },
+    {
+      "name": "$XSAPPNAME.SupportAgent",
+      "description": "Read-only access"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "CRMAdmin",
+      "description": "CRM Admin",
+      "scope-references": [
+        "$XSAPPNAME.CRMAdmin"
+      ]
+    },
+    {
+      "name": "SalesManager",
+      "description": "Sales Manager",
+      "scope-references": [
+        "$XSAPPNAME.SalesManager"
+      ]
+    },
+    {
+      "name": "SupportAgent",
+      "description": "Support Agent",
+      "scope-references": [
+        "$XSAPPNAME.SupportAgent"
+      ]
+    }
+  ],
+  "role-collections": [
+    {
+      "name": "CRM-Admin-Collection",
+      "role-template-references": [
+        "$XSAPPNAME.CRMAdmin"
+      ]
+    },
+    {
+      "name": "Sales-Manager-Collection",
+      "role-template-references": [
+        "$XSAPPNAME.SalesManager"
+      ]
+    },
+    {
+      "name": "Support-Agent-Collection",
+      "role-template-references": [
+        "$XSAPPNAME.SupportAgent"
+      ]
+    }
+  ],
+  "oauth2-configuration": {
+    "redirect-uris": [
+      "https://ce46b783trial-dev-crm-microservice-approuter.cfapps.us10-001.hana.ondemand.com/login/callback"
+    ]
+  }
+}

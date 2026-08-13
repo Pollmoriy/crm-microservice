@@ -1,14 +1,72 @@
 {
   "name": "crm-microservice",
   "version": "1.0.0",
+  "private": true,
   "dependencies": {
-    "@sap/cds": "^9"
+    "@cap-js/hana": "^3.0.2",
+    "@sap/cds": "^10.0.5",
+    "@sap/xssec": "^4"
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^2.4"
+    "@cap-js/cds-test": "^1.0.2",
+    "@cap-js/sqlite": "^2.4",
+    "@sap/cds-dk": "^10.0.6",
+    "@sap/ux-ui5-tooling": "^1.29.0",
+    "cds-plugin-ui5": "^0.17.0",
+    "jest": "^29"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testTimeout": 30000,
+    "modulePathIgnorePatterns": ["<rootDir>/gen"]
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "watch": "cds watch",
+    "watch-crm-ui": "cds watch --open crm.crmui/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "test": "jest --silent --runInBand"
   },
-  "private": true
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/crm-ui"
+  ],
+  "cds": {
+    "requires": {
+      "auth": {
+        "kind": "mocked",
+        "users": {
+          "admin": {
+            "password": "admin",
+            "roles": [
+              "CRMAdmin"
+            ]
+          },
+          "manager": {
+            "password": "manager",
+            "roles": [
+              "SalesManager"
+            ]
+          },
+          "agent": {
+            "password": "agent",
+            "roles": [
+              "SupportAgent"
+            ]
+          }
+        }
+      }
+    },
+    "[production]": {
+      "requires": {
+        "auth": {
+          "kind": "xsuaa"
+        },
+        "db": {
+          "kind": "hana"
+        }
+      }
+    }
+  }
 }

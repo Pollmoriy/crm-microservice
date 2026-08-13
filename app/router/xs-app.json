@@ -1,0 +1,18 @@
+{
+  "welcomeFile": "/crmcrmui/index.html",
+  "authenticationMethod": "route",
+  "routes": [
+    {
+      "source": "^/crm/(.*)$",
+      "target": "/crm/$1",
+      "destination": "srv-api",
+      "authenticationType": "xsuaa"
+    },
+    {
+      "source": "^/crmcrmui/(.*)$",
+      "target": "$1",
+      "service": "html5-apps-repo-rt",
+      "authenticationType": "xsuaa"
+    }
+  ]
+}

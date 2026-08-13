@@ -1,0 +1,4 @@
+code;description;criticality
+ACTIVE;Active customer;5
+INACTIVE;Inactive customer;1
+AT_RISK;Customer at risk;2
